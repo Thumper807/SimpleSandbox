@@ -55,8 +55,8 @@ public class GameController : MonoBehaviour {
         {
             go.GetComponent<CharacterMovement>().Active = (character == go);
         }
-
-        CharacterCamera.GetComponent<CameraMovement>().SetTarget(character.transform);
+            
+        CharacterCamera.GetComponent<CameraRigMovement>().SetTarget(character);
     }
        
 }

@@ -1034,6 +1034,7 @@ GameObject:
   - component: {fileID: 11405270}
   - component: {fileID: 13613076}
   - component: {fileID: 5452534}
+  - component: {fileID: 114432350626505242}
   m_Layer: 0
   m_Name: Sporty_Granny
   m_TagString: Untagged
@@ -3040,3 +3041,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174754}
   m_IsPrefabParent: 1
+--- !u!114 &114432350626505242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264cfcea978a74caa82d60e9fbb28d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
