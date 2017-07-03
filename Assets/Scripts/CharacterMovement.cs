@@ -45,6 +45,11 @@ public class CharacterMovement : MonoBehaviour {
             rotation = rotationSpeed * Input.GetAxis("Mouse X") * Time.deltaTime;
         }
 
+        if (Mathf.Abs(Input.GetAxis("Horizontal1")) > 0.0f)
+        {
+            rotation = rotationSpeed * Input.GetAxis("Horizontal1") * Time.deltaTime;
+        }
+
         // 'fwd key' or 'Left & Right' mousebutton together will move character forward
         // 'backward key' will move character back slowly
         if (Input.GetKey(KeyCode.W) || (Input.GetMouseButton(0) && Input.GetMouseButton(1)))

@@ -7,6 +7,7 @@ public class CameraRigMovement : MonoBehaviour {
     private float cameraRotateSpeed = 10.0f;
     [SerializeField] protected GameObject m_target;
     [SerializeField] private float m_MoveSpeed = 1f;                      // How fast the rig will move to keep up with the target's position.
+    public float CameraRotationResetSpeed = 0.0f;
 
     // Use this for initialization
     void Start () 
@@ -26,6 +27,12 @@ public class CameraRigMovement : MonoBehaviour {
         // Move the rig towards target position.
         transform.position = Vector3.Lerp(transform.position, m_target.transform.position, m_MoveSpeed * Time.deltaTime);
 
+        // If target is moving then reset the view to face target forward.
+        if (transform.position - m_target.transform.position != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(m_target.transform.forward), CameraRotationResetSpeed);
+        }
+
         // Left mousebutton will rotate camera around character
         if (Input.GetMouseButton(0))
         {
@@ -44,6 +51,6 @@ public class CameraRigMovement : MonoBehaviour {
         }
 
         m_target = newTarget;
-        transform.rotation = m_target.GetComponent<SaveState>().GetCameraState(); //Quaternion.LookRotation(m_target.transform.forward);
+        transform.rotation = m_target.GetComponent<SaveState>().GetCameraState();
     }
 }
