@@ -4,9 +4,9 @@ using System.Collections;
 public class CharacterMovement : MonoBehaviour {
 
     private Animator anim;
-    private float fwdSpeed = 10.0f;
-    private float bwdSpeed = 10.0f;
-    private float rotationSpeed = 500.0f;
+    public float fwdSpeed = 5.0f;
+    public float bwdSpeed = 5.0f;
+    public float rotationSpeed = 500.0f;
     public bool Active;
 
     // Use this for initialization
@@ -45,9 +45,9 @@ public class CharacterMovement : MonoBehaviour {
             rotation = rotationSpeed * Input.GetAxis("Mouse X") * Time.deltaTime;
         }
 
-        if (Mathf.Abs(Input.GetAxis("Horizontal1")) > 0.0f)
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.0f)
         {
-            rotation = rotationSpeed * Input.GetAxis("Horizontal1") * Time.deltaTime;
+            rotation = rotationSpeed * Input.GetAxis("Horizontal") * Time.deltaTime;
         }
 
         // 'fwd key' or 'Left & Right' mousebutton together will move character forward

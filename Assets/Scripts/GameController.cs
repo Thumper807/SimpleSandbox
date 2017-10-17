@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        GameObject newCharacter = SpawnNewCharacter();
+        SetCharacterActive(newCharacter);
 	}
 	
 	// Update is called once per frame
