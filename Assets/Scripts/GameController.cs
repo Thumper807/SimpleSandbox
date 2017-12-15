@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour {
 
     public GameObject CharacterCamera;
-    public GameObject Granny;
+    public GameObject[] Characters;
+
     private Vector3 m_spawnLocation  = new Vector3(0, 0, 0);
 
     private List<GameObject> m_characters = new List<GameObject>();
@@ -46,7 +47,8 @@ public class GameController : MonoBehaviour {
 
         spawnLocation.y = 0.0f;
 
-        GameObject newCharacter = Instantiate(Granny, spawnLocation, Quaternion.identity) as GameObject;
+        GameObject orig_Char = Characters[Random.Range(0, Characters.Length)];
+        GameObject newCharacter = Instantiate(orig_Char, spawnLocation, Quaternion.identity) as GameObject;
         m_characters.Add(newCharacter);
         return newCharacter;
     }

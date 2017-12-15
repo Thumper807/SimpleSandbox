@@ -10,10 +10,12 @@ public class CameraRigMovement : MonoBehaviour {
     public float CameraRotationResetSpeed = 0.0f;
     private float m_cameraOffset;
     public float Smooth = 0.2f;
+    private Camera m_camera;
 
     // Use this for initialization
     void Start () 
     {
+        m_camera = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -40,8 +42,11 @@ public class CameraRigMovement : MonoBehaviour {
         {
             transform.localRotation = Quaternion.identity;
 
-            transform.parent = m_target.transform; // reconnect the camera to the character so it will follow character.
-            Debug.Log("In Left and Right Mouse: " + transform.localRotation.eulerAngles);
+            if (transform.parent != m_target.transform)
+            {
+                transform.parent = m_target.transform; // reconnect the camera to the character so it will follow character.
+            }
+            //Debug.Log("In Left and Right Mouse: " + transform.localRotation.eulerAngles);
         }
 
         // Left mousebutton will rotate camera around character
@@ -52,18 +57,21 @@ public class CameraRigMovement : MonoBehaviour {
             float rotAngle = cameraRotateSpeed * Input.GetAxis("Mouse X");// * Time.deltaTime;
             transform.Rotate(Vector3.up, rotAngle, Space.Self);
 
-            Debug.Log("In Left Mouse: " + transform.localRotation.eulerAngles);
+            //Debug.Log("In Left Mouse: " + transform.localRotation.eulerAngles);
         }
         else
         {
-            transform.parent = m_target.transform; // reconnect the camera to the character so it will follow character.
-            Debug.Log("In else: " + transform.localRotation.eulerAngles);
+            if (transform.parent != m_target.transform)
+            {
+                transform.parent = m_target.transform; // reconnect the camera to the character so it will follow character.
+            }
+            //Debug.Log("In else: " + transform.localRotation.eulerAngles);
         }
 
         // Middle mousebutton scroll will zoom camera in and out on character
-
-        //Debug.Log(m_cameraOffset);
-
+        float cameraZoom = Input.GetAxis("Mouse ScrollWheel");
+        m_camera.transform.Translate(new Vector3(0, 0, cameraZoom));
+        
     }
 
     public void SetTarget(GameObject newTarget)

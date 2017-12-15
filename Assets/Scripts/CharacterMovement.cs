@@ -4,7 +4,11 @@ using System.Collections;
 public class CharacterMovement : MonoBehaviour {
 
     private Animator anim;
-    public float fwdSpeed = 5.0f;
+    public float WalkingSpeed = 1.75f;
+    public float fwdRunningSpeed = 5.0f;
+    public float MaxFwdSpeed = 5.0f;
+    public float RunningSpeedMultipler = 1.0f;
+    public float WalkingSpeedMultipler = 0.5f;
     public float bwdSpeed = 5.0f;
     public float rotationSpeed = 500.0f;
     public bool Active;
@@ -29,13 +33,12 @@ public class CharacterMovement : MonoBehaviour {
         {
             anim.SetTrigger("isJumping");
         }
-        anim.SetFloat("isRunning", characterMovement);
-        //Debug.Log(anim.GetCurrentAnimatorStateInfo(0).);
     }
 
     private float Move()
     {
-        float translation;
+        float yTranslation;
+        float xTranslation;
 
         // CHARACTER MOVEMENT
         // Right mousebutton will rotate character
@@ -52,27 +55,45 @@ public class CharacterMovement : MonoBehaviour {
 
         // 'fwd key' or 'Left & Right' mousebutton together will move character forward
         // 'backward key' will move character back slowly
-        if (Input.GetKey(KeyCode.W) || (Input.GetMouseButton(0) && Input.GetMouseButton(1)))
-        {
-            translation = fwdSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            translation = -bwdSpeed * Time.deltaTime;
-        }
-        else
-        {
-            translation = 0.0f;
-        }
+        float yInput = Input.GetAxis("Vertical");
+        float runInput = Input.GetAxis("RunModifier");
+
+        yInput = yInput * (runInput + 1);
+
+        yInput = Mathf.Clamp(yInput, -1.0f, 2.0f);
+        yTranslation = yInput * WalkingSpeed * Time.deltaTime;
+
+        //if (Input.GetKey(KeyCode.W) || (Input.GetMouseButton(0) && Input.GetMouseButton(1)))
+        //{
+        //    float fwdSpeed = WalkingSpeed;
+        //    if (Input.GetKey(KeyCode.LeftShift))
+        //    {
+        //        fwdSpeed = fwdRunningSpeed;
+        //    }
+
+        //    translation = yInput * MaxFwdSpeed * Time.deltaTime;
+        //}
+        //else if (Input.GetKey(KeyCode.S))
+        //{
+        //    translation = -bwdSpeed * Time.deltaTime;
+        //}
+        //else
+        //{
+        //    translation = 0.0f;
+        //}
 
         // 'side keys' will strafe character left and right
+        float xInput = Input.GetAxis("Strafe");
+        xTranslation = xInput * WalkingSpeed * Time.deltaTime;
 
         // 'jump key' will cause character to jump
 
         // TRANSFORM
-        transform.Translate(0, 0, translation);
+        transform.Translate(xTranslation, 0, yTranslation);
         transform.Rotate(Vector3.up, rotation);
 
-        return translation;
+        anim.SetFloat("xMotion", xInput);
+        anim.SetFloat("yMotion", yInput);
+        return yTranslation;
     }
 }
