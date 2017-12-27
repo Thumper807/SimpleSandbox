@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4849099311334978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plant_Brush_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33893181353221300}
   - component: {fileID: 23959107537823480}
   - component: {fileID: 64909277117624532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plant_Brush_03 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,6 +80,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -95,6 +96,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -118,7 +120,7 @@ MeshCollider:
   m_GameObject: {fileID: 1905681000731268}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
   m_InflateMesh: 0
