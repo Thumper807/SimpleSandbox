@@ -213,7 +213,7 @@ MonoBehaviour:
   PlantsToClone:
   - {fileID: 1335965313701012, guid: a53e85a8b5e3ae846861d381067eed5a, type: 2}
   - {fileID: 1385098388375032, guid: 0db180deced99d04c945fd5f0cebde67, type: 2}
-  VegetationDensitiy: 10000
+  VegetationDensitiy: 1000
 --- !u!1 &340735925 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 181694, guid: fa6d627881ff044cd8b679a7cfe2854d, type: 2}
