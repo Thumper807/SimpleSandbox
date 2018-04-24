@@ -244,6 +244,7 @@ MonoBehaviour:
   Characters:
   - {fileID: 1217584821746984, guid: ffb4f2aad92d14e589f70235970636ff, type: 2}
   - {fileID: 1941545290455860, guid: 58438d2a07010d845b9b5d6ff9bea15c, type: 2}
+  - {fileID: 1444249664364992, guid: c1a561204f97efd42996de3fcfb613d9, type: 2}
 --- !u!4 &576461013
 Transform:
   m_ObjectHideFlags: 0

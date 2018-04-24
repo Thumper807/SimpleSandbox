@@ -591,10 +591,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4455567174113550}
   - component: {fileID: 95730839517409474}
-  - component: {fileID: 114976912981059446}
   - component: {fileID: 136506095681604626}
   - component: {fileID: 54717795142331454}
   - component: {fileID: 114768106004149622}
+  - component: {fileID: 114411404104237324}
+  - component: {fileID: 114899800134247452}
   m_Layer: 0
   m_Name: Guard_01
   m_TagString: Untagged
@@ -1294,7 +1295,7 @@ Animator:
   m_GameObject: {fileID: 1941545290455860}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 45af0e649e631fa4ebc6a945489d110a, type: 3}
-  m_Controller: {fileID: 22100000, guid: a6bf7a4d0bb9cb9488949e76190ad909, type: 2}
+  m_Controller: {fileID: 9100000, guid: ff979fce4ced4d84099a67ba10688527, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1302,6 +1303,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114411404104237324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1941545290455860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234ba90014844dd46b5a037acc89e008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkSpeed: 1.75
+  RotationSpeed: 100
+  Direction: {x: 0, y: 0, z: 0}
 --- !u!114 &114768106004149622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1313,7 +1328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264cfcea978a74caa82d60e9fbb28d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114976912981059446
+--- !u!114 &114899800134247452
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1321,17 +1336,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941545290455860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d519f7238dcdd4e16a800428f5c99ba6, type: 3}
+  m_Script: {fileID: 11500000, guid: 45c5a7eb585e33141b5bfa9606308075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkingSpeed: 1.75
-  fwdRunningSpeed: 5
-  MaxFwdSpeed: 5
-  RunningSpeedMultipler: 1
-  WalkingSpeedMultipler: 0.5
-  bwdSpeed: 2
-  rotationSpeed: 150
-  Active: 0
 --- !u!136 &136506095681604626
 CapsuleCollider:
   m_ObjectHideFlags: 1

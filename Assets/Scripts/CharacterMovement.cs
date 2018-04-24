@@ -2,12 +2,9 @@
 using System.Collections;
 using System;
 
-public class CharacterMovement : MonoBehaviour {
-
+public class CharacterMovement : CreatureContext
+{
     private Animator m_animator;
-    public float WalkingSpeed = 1.75f;
-    public float RotationSpeed = 500.0f;
-    public bool Active;
 
     // Use this for initialization
     void Start () 
@@ -16,7 +13,7 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () 
+    protected override void Update () 
     {
         float xInput = 0.0f;
         float yInput = 0.0f;
@@ -30,9 +27,6 @@ public class CharacterMovement : MonoBehaviour {
                 m_animator.SetTrigger("isJumping");
             }
         }
-
-        m_animator.SetFloat("xMotion", xInput);
-        m_animator.SetFloat("yMotion", yInput);
     }
 
     private void Move(out float xInput, out float yInput)
@@ -61,11 +55,11 @@ public class CharacterMovement : MonoBehaviour {
         yInput = yInput * (runInput + 1);
 
         yInput = Mathf.Clamp(yInput, -1.0f, 2.0f);
-        yTranslation = yInput * WalkingSpeed * Time.deltaTime;
+        yTranslation = yInput * base.WalkSpeed * Time.deltaTime;
 
         // 'side keys' will strafe character left and right
         xInput = Input.GetAxis("Strafe");
-        xTranslation = xInput * WalkingSpeed * Time.deltaTime;
+        xTranslation = xInput * base.WalkSpeed * Time.deltaTime;
 
         // 'jump key' will cause character to jump
 

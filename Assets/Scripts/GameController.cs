@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            int index = m_characters.FindIndex(a => a.GetComponent<CharacterMovement>().Active == true);
+            int index = m_characters.FindIndex(a => a.GetComponent<CreatureContext>().Active == true);
             index++;
             if (index == m_characters.Count)
                 index = 0;
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour {
     {
         foreach (GameObject go in m_characters)
         {
-            go.GetComponent<CharacterMovement>().Active = (character == go);
+            go.GetComponent<CreatureContext>().Active = (character == go);
         }
             
         CharacterCamera.GetComponent<CameraRigMovement>().SetTarget(character);

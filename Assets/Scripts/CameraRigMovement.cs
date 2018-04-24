@@ -46,7 +46,6 @@ public class CameraRigMovement : MonoBehaviour {
             {
                 transform.parent = m_target.transform; // reconnect the camera to the character so it will follow character.
             }
-            //Debug.Log("In Left and Right Mouse: " + transform.localRotation.eulerAngles);
         }
 
         // Left mousebutton will rotate camera around character
@@ -57,7 +56,6 @@ public class CameraRigMovement : MonoBehaviour {
             float rotAngle = cameraRotateSpeed * Input.GetAxis("Mouse X");// * Time.deltaTime;
             transform.Rotate(Vector3.up, rotAngle, Space.Self);
 
-            //Debug.Log("In Left Mouse: " + transform.localRotation.eulerAngles);
         }
         else
         {
@@ -65,7 +63,6 @@ public class CameraRigMovement : MonoBehaviour {
             {
                 transform.parent = m_target.transform; // reconnect the camera to the character so it will follow character.
             }
-            //Debug.Log("In else: " + transform.localRotation.eulerAngles);
         }
 
         // Middle mousebutton scroll will zoom camera in and out on character
